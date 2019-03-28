@@ -35,7 +35,7 @@ pipeline {
     stage('Run Docker Container') {
       steps{
         sh "ssh ${params.deploy_id}@${params.deploy_ip} docker run -d --name myproject  -p 8080:8080 $docker_repo:latest"
-        sh "ssh ${params.deploy_id}@${params.deploy_id} docker ps"
+        sh "ssh ${params.deploy_id}@${params.deploy_ip} docker ps"
       }
     }
 
